@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApplication1.Utils;
 
 namespace WpfApplication1.Model {
-    class Polygon {
+    internal class Polygon {
         private List<Edge> _edges;
-        private short _faceNumber;  // 1 - Front, 2 - Top, 3 - Right, 4 - Left, 5 - Botton, 6 - Back
+        private short _faceNumber; // 1 - Front, 2 - Top, 3 - Right, 4 - Left, 5 - Botton, 6 - Back
+        private Vertex _normalVector;
 
 
-        public short FaceNumber{
+        public Vertex NormalVector {
+            get { return _normalVector; }
+            set { _normalVector = value; }
+        }
+
+
+        public short FaceNumber {
             get { return _faceNumber; }
             set { _faceNumber = value; }
         }
@@ -27,6 +35,13 @@ namespace WpfApplication1.Model {
 
         public void AddEdge(Edge e) {
             _edges.Add(e);
+        }
+
+        public void SetNormalVector() {
+            Vertex a = _edges[0].FinishVertex - _edges[0].StartVertex;
+            Vertex b = _edges[3].StartVertex - _edges[3].FinishVertex;
+
+            NormalVector = MatrixOperations.CrossProduct(a, b);
         }
     }
 }

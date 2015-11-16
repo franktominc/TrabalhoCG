@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace WpfApplication1.Model {
     class Edge {
         private Vertex _start;
         private Vertex _finish;
+        
 
         public Vertex FinishVertex {
             get { return _finish; }
@@ -26,5 +28,6 @@ namespace WpfApplication1.Model {
             _start = start;
             _finish = finish;
         }
+
     }
 }

@@ -65,5 +65,9 @@ namespace WpfApplication1.Utils {
             x = NormalizeVector(x);
             return x;
         }
+
+        public static double DotProduct(Vertex a, Vertex b) {
+            return a.X*b.X + a.Y*b.Y + a.Z*b.Z;
+        }
     }
 }

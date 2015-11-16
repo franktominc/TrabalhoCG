@@ -27,7 +27,21 @@ namespace WpfApplication1 {
         private void Button_Click(object sender, RoutedEventArgs e) {
             var a = new Vertex(1,0,0);
             var b = new Vertex(0,1,0);
-            Console.WriteLine(MatrixOperations.CrossProduct(a,b));
+            var c = new Vertex(0,0,1);
+            var d = new Vertex(1,1,1);
+
+            var C = new Edge(a, b);
+            var D = new Edge(a, d);
+            var E = new Edge(b, c);
+            var F = new Edge(c, d);
+
+            var P = new Model.Polygon();
+            P.AddEdge(C);
+            P.AddEdge(D);
+            P.AddEdge(E);
+            P.AddEdge(F);
+            P.SetNormalVector();
+            Console.WriteLine(P.NormalVector);
         }
     }
 }

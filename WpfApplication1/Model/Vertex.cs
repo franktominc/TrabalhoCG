@@ -37,5 +37,9 @@ namespace WpfApplication1.Model {
         public override string ToString() {
             return string.Format("({0},{1},{2})",X,Y,Z);
         }
+
+        public static Vertex operator -(Vertex a, Vertex b) {
+            return new Vertex(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfApplication1.Model {
-    class Vertex {
+    public class Vertex {
         private double _x;
         private double _y;
         private double _z;
@@ -32,6 +32,10 @@ namespace WpfApplication1.Model {
             _x = x;
             _y = y;
             _z = z;
+        }
+
+        public override string ToString() {
+            return string.Format("({0},{1},{2})",X,Y,Z);
         }
     }
 }

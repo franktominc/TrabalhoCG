@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApplication1.Model;
 
 namespace WpfApplication1.Utils {
     public static class MatrixOperations {
@@ -52,5 +53,17 @@ namespace WpfApplication1.Utils {
             return new double[,] { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 1, k }, { 0, 0, 0, 1 } };
         }
 
+        public static Vertex NormalizeVector(Vertex x) {
+            var module = Math.Sqrt(x.X*x.X + x.Y*x.Y + x.Z*x.Z);
+            return new Vertex(x.X/module, x.Y/module, x.Z/module);
+        }
+
+        public static Vertex CrossProduct(Vertex a, Vertex b) {
+            var x = new Vertex(a.Y*b.Z-a.Z*b.Y,
+                                  a.Z*b.X-b.Z*a.X,
+                                  a.X*b.Y-a.Y*b.X);
+            x = NormalizeVector(x);
+            return x;
+        }
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication1.Model;
+using WpfApplication1.Utils;
 
 namespace WpfApplication1 {
     /// <summary>
@@ -23,15 +25,9 @@ namespace WpfApplication1 {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            var a = new double[,] { {1,2,3}, {4,5,6}, {7,8,9}};
-            var b = new double[,] { {1,2,3}, {4,5,6}, {7,8,9}};
-            var c = Utils.MatrixOperations.MatrixMultiplication(a, b);
-            for (int i = 0; i < c.GetLength(0); i++) {
-                for (int j = 0; j < c.GetLength(1); j++) {
-                    Console.Write("{0} ",c[i,j]);
-                }
-                Console.WriteLine();
-            }
+            var a = new Vertex(1,0,0);
+            var b = new Vertex(0,1,0);
+            Console.WriteLine(MatrixOperations.CrossProduct(a,b));
         }
     }
 }

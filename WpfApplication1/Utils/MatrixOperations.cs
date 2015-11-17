@@ -7,7 +7,8 @@ using WpfApplication1.Model;
 
 namespace WpfApplication1.Utils {
     public static class MatrixOperations {
-        private static double RAD = Math.PI / 180;
+        private const double Rad = Math.PI/180;
+
         public static double[,] MatrixMultiplication(double[,] a, double[,] b) {
 
             var c = new double[a.GetLength(0), b.GetLength(1)];
@@ -34,18 +35,18 @@ namespace WpfApplication1.Utils {
         }
 
         public static double[,] XAxisRotation(double angle) {
-            var cosTheta = Math.Cos(RAD * angle);
-            var sinTheta = Math.Sin(RAD * angle);
+            var cosTheta = Math.Cos(Rad * angle);
+            var sinTheta = Math.Sin(Rad * angle);
             return new[,] { { 1, 0, 0, 0 }, { 0, cosTheta, -sinTheta, 0 }, { 0, sinTheta, cosTheta, 0 }, { 0, 0, 0, 1 } };
         }
         public static double[,] YAxisRotation(double angle) {
-            var cosTheta = Math.Cos(RAD * angle);
-            var sinTheta = Math.Sin(RAD * angle);
+            var cosTheta = Math.Cos(Rad * angle);
+            var sinTheta = Math.Sin(Rad * angle);
             return new[,] { { cosTheta, 0, sinTheta, 0 }, { 0, 1, 0, 0 }, { -sinTheta, 0, cosTheta, 0 }, { 0, 0, 0, 1 } };
         }
         public static double[,] ZAxisRotation(double angle) {
-            var cosTheta = Math.Cos(RAD * angle);
-            var sinTheta = Math.Sin(RAD * angle);
+            var cosTheta = Math.Cos(Rad * angle);
+            var sinTheta = Math.Sin(Rad * angle);
             return new[,] { { cosTheta, -sinTheta, 0, 0 }, { sinTheta, cosTheta, 0, 0 }, { 0, 0, 1, 0 }, { 0, 0, 0, 1 } };
         }
 
@@ -68,6 +69,25 @@ namespace WpfApplication1.Utils {
 
         public static double DotProduct(Vertex a, Vertex b) {
             return a.X*b.X + a.Y*b.Y + a.Z*b.Z;
+        }
+
+        public static double[,] TransposeMatrix(double[,] A) {
+            var aux = new double[A.GetLength(1),A.GetLength(0)];
+            for (var i = 0; i < aux.GetLength(0); i++) {
+                for (var j = 0; j < aux.GetLength(1); j++) {
+                    aux[i, j] = A[j, i];
+                }
+            }
+            return aux;
+        }
+
+        public static void DebugMatrix(double[,] x) {
+            for (int i = 0; i < x.GetLength(0); i++) {
+                for (int j = 0; j < x.GetLength(1); j++) {
+                    Console.Write("{0} ", x[i,j]);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

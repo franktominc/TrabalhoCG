@@ -38,9 +38,10 @@ namespace WpfApplication1.Model {
         }
 
         public void SetNormalVector() {
-            Vertex a = _edges[0].FinishVertex - _edges[0].StartVertex;
-            Vertex b = _edges[3].StartVertex - _edges[3].FinishVertex;
-
+            var a = _edges[0].FinishVertex - _edges[0].StartVertex;
+            var b = _edges[3].StartVertex - _edges[3].FinishVertex;
+            
+            
             NormalVector = MatrixOperations.CrossProduct(a, b);
         }
     }

@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Model\Edge.cs" />
     <Compile Include="Model\Polygon.cs" />
+    <Compile Include="Model\Solid.cs" />
     <Compile Include="Model\Vertex.cs" />
     <Compile Include="Utils\MatrixOperations.cs" />
     <Compile Include="View\MainWindow.xaml.cs">

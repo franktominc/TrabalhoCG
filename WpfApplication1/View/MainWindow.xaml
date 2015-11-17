@@ -3,7 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="229,126,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Botao do foda-se" HorizontalAlignment="Left" Margin="372,293,0,0" VerticalAlignment="Top" Width="134" Click="Button_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.226"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Content="Criar Cubo" HorizontalAlignment="Left" Margin="259,246,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
